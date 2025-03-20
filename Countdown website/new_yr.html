@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("newyr_bg.png");
+            text-align: center;
+            background-size: cover;
+            margin-top: 450px;
+            color:white;
+            font-family: 'Luconida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1{
+            color:palevioletred;
+            font-size: 50px;
+        }
+
+        #timer{
+            margin-top: 1050px;
+            font-size: 70px;
+            margin-top: 20px;
+        }
+        h2{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 50px;
+            color:gold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 New Year'26 Count Downs 🎉</h1>
+    <div id="timer"></div>
+    <h2>Current Time:<span id="times"></span></h2>
+    <h2>Current Date:<span id="date"></span></h2>
+    <script>
+        function countdown()
+        {
+            const newYear=new Date("January 1,2026 00:00:00");
+            const now=new Date();
+            const diff=newYear-now;
+            if(diff<=0)
+        {
+            document.getElementById("timer").innerHTML="HAPPY NEW YEAR!";
+            return;
+        }
+        const days=Math.floor(diff/(1000*60*60*24));
+        const hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+        const minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+        const seconds=Math.floor((diff%(1000*60))/1000);
+        document.getElementById("timer").innerHTML= `🌟${days} Days,${hours} Hours,${minutes} Minutes ,${seconds} Seconds`;
+        }
+        setInterval(countdown,1000);
+       function updateClock()
+       {
+        const now=new Date();
+        const time=now.toLocaleTimeString();
+        const date=now.toLocaleDateString();
+        document.getElementById("times").textContent=time;
+        document.getElementById("date").textContent=date;
+       }
+       setInterval(updateClock,1000);
+       updateClock();
+    </script>
+</body>
+</html>

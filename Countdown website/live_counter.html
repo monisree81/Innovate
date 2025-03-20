@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            background-image: url("bg3.png");
+            background-repeat: no-repeat;
+            background-size: 2100px 1100px;
+        }
+        #Clock {
+            text-align: center;
+            font-size: 200px;
+            padding-top: 250px;
+        }
+
+        #greetings {   
+            color: blueviolet;
+            font-size: 120px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+    </style>
+</head>
+<body>
+    <div id="Clock">
+        <div id="greetings"></div>
+        <div id="time"></div>
+    </div>
+    <script>
+        function showtime() {
+            const date = new Date();
+            let hours = date.getHours();
+            let greetings = "Good Morning Guys";
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let session = "AM";
+            if (hours < 12 && hours > 6) {
+                greetings = " 🌟 Good Morning Guys";
+            }
+            else if (hours > 12 && hours < 18) {
+                greetings = "🌟 Good Evening Guys";
+            }
+            else {
+                greetings = "🌟 Good Night Guys";
+            }
+            if (hours > 12) {
+                hours -= 12;
+                session = "PM";
+            }
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+            let time = hours + ":" + minutes + ":" + seconds + " " + session;
+            document.querySelector("#time").innerText = time;
+            document.querySelector("#greetings").innerText = greetings;
+        }
+        showtime();
+        setInterval(showtime,1000);
+    </script>
+</body>
+</html>

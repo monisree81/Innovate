@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="icon" href="back.jpeg">
+    <style>
+        body {
+            background-image: url("bg1.png");
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1{
+            margin-top: 50px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size: 70px;
+            text-decoration:underline;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            margin-top: 100px;
+            background-color: white;
+            border: 5px solid black;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 20px 20px 12px rgba(213, 15, 15, 0.1);
+           
+        
+        }
+        .card img {
+            width: 100%;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            
+        }
+
+        .card h2 {
+            margin: 0 10px;
+        }
+
+        .card a {
+            display: block;
+            color: white;
+            background-color: purple;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>COUNTER</h1>
+    <div class="container">
+        <div class="card">
+            <img src="flower.png" alt="">
+            <h2>Dob Calculator</h2>
+            <p>
+                Let's Calculate Our Age in minutes,Hours,days,Months and Years
+            </p>
+            <a href="dob.html">Let's Go To DOB Calci</a>
+        </div>
+        <div class="card">
+            <img src="flower.png" alt="">
+            <h2>New Year Counter</h2>
+            <p>
+                Let's See the CountDown to Next New Year 2026
+            </p>
+            <a href="new_yr.html">Let's Go To New Year Counter</a>
+        </div>
+        <div class="card">
+            <img src="flower.png" alt="">
+            <h2>Live Counter</h2>
+            <p>
+                Let's See the Live Time or Digital Clock in this section 
+            </p>
+            <a href="live_counter.html">Let's Go To Live Timer</a>
+        </div>
+    </div>
+</body>
+
+</html>

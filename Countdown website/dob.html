@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOB Calculator</title>
+    <style>
+        body {
+            background-image: url("bg1.png");
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            color: black;
+            margin-top: 170px;
+            background-size: cover;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: pink;
+        }
+        label{
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size: large;
+
+        }
+        #result{
+            font-size: 70px;
+            font-weight: bolder;
+            color:#333;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+   <div class="container">
+    <h1>Age Calcuator</h1>
+    <form id="agecalci">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required>
+
+        <label for="tob">Time of Birth:</label>
+        <input type="time" id="tob"required>
+        <button type="button" onclick="calculateAge()">Calculate Age</button>
+        
+    </form>
+    <div id="result"></div>
+   </div>
+    <script>
+        function calculateAge(){
+            const dob=document.getElementById('dob').value;
+            const tob=document.getElementById('tob').value;
+            if(!dob|| !tob){
+                document.getElementById('result').textContent="Please enter both";
+                return;
+            }
+            const birthDateTime = new Date(`${dob}T${tob}`);
+            const now=new Date();
+            if(birthDateTime>now){
+                document.getElementById('result').textContent="DOB cannot in future";
+                return;
+            }
+            let years=now.getFullYear()-birthDateTime.getFullYear();
+            let months=now.getMonth()-birthDateTime.getMonth();
+            let days=now.getDate()-birthDateTime.getDate();
+            let hours=now.getHours()-birthDateTime.getHours();
+            let minutes=now.getMinutes()-birthDateTime.getMinutes();
+            if(minutes<0)
+            {
+                minutes+=60;
+                hours--;
+            }
+            if(hours<0)
+            {
+                hours+=24;
+                days--;
+            }
+            if(days<0)
+            {
+                const previousMonth=new Date(now.getFullYear,now.getMonth(),0);
+                days+=previousMonth.getDate();
+                months--;
+            }
+            if(months<0)
+            {
+                months+=12;
+                years--;
+            }
+            document.getElementById('result').textContent=`You are ${years} years,${months} months,${days} days,${hours} hours, and ${minutes} minutes old`;
+        }
+    </script>
+</body>
+
+</html>
